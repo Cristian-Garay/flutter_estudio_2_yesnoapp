@@ -7,7 +7,6 @@ class HerMessageBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
 
-    // return const Text("My Message Bubble");
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -17,13 +16,15 @@ class HerMessageBubble extends StatelessWidget {
           child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text(
-              "Hola mundo",
+              'Hola Mundo',
               style: TextStyle(color: Colors.white),
             ),
           ),
         ),
         const SizedBox(height: 5),
+
         _ImageBubble(),
+
         const SizedBox(height: 10),
       ],
     );
@@ -34,26 +35,24 @@ class _ImageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    // print(size);
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: Image.network(
-        "https://yesno.wtf/assets/no/9-dc99c0e3c066b28d3a12262692cd5432.gif",
-        width: size.width * 0.7,
-        height: 150,
-        fit: BoxFit.cover,
-        loadingBuilder: (context, child, loadingProgress) {
-          if (loadingProgress == null) return child;
+        borderRadius: BorderRadius.circular(20),
+        child: Image.network(
+          'https://yesno.wtf/assets/no/20-56c4b19517aa69c8f7081939198341a4.gif',
+          width: size.width * 0.7,
+          height: 150,
+          fit: BoxFit.cover,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
 
-          return Container(
-            width: size.width * 0.7,
-            height: 150,
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: const Text("Persona está enviando imagen"),
-          );
-        },
-      ),
-    );
+            return Container(
+              width: size.width * 0.7,
+              height: 150,
+              padding: const EdgeInsets.symmetric( horizontal: 10, vertical: 5),
+              child: const Text('Mi amor está enviando una imagen'),
+            );
+          },
+        ));
   }
 }
